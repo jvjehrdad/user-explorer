@@ -1,42 +1,74 @@
+/*
+ * Design tokens & global reset.
+ *
+ * Color palette: a modern indigo-teal accent with warm neutrals.
+ * Clean, minimal, and easy on the eyes.
+ */
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Primary accent — indigo-violet */
+  --color-primary: #6366f1;
+  --color-primary-light: #818cf8;
+  --color-primary-bg: #eef2ff;
+
+  /* Surfaces */
+  --color-background: #f8f9fc;
+  --color-surface: #ffffff;
+
+  /* Borders & shadows */
+  --color-border: #e5e7eb;
+  --color-shadow: rgba(99, 102, 241, 0.08);
+
+  /* Text */
+  --color-text: #1e1e2e;
+  --color-text-secondary: #6b7280;
+  --color-text-tertiary: #9ca3af;
+
+  /* Semantic */
+  --color-error: #dc2626;
+  --color-error-bg: #fef2f2;
+
+  /* Font */
+  --font-sans: var(--font-geist-sans), system-ui, -apple-system, sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* ── Reset ────────────────────────────────────────────── */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
-html,
-body {
-  max-width: 100vw;
-  overflow-x: hidden;
-}
-
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+html {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-* {
-  box-sizing: border-box;
-  padding: 0;
+body {
   margin: 0;
+  padding: 0;
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--color-text);
+  background: var(--color-background);
+  min-height: 100dvh;
 }
 
+/* ── Utility ──────────────────────────────────────────── */
+
 a {
-  color: inherit;
+  color: var(--color-primary);
   text-decoration: none;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
+a:hover {
+  text-decoration: underline;
+}
+
+/* Focus ring for keyboard navigation */
+:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
 }
