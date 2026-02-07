@@ -1,35 +1,39 @@
 /*
  * Design tokens & global reset.
- *
- * Color palette: a modern indigo-teal accent with warm neutrals.
- * Clean, minimal, and easy on the eyes.
+ * Inspired by modern SaaS (e.g. Novinhub): clean, professional, clear hierarchy.
  */
 
 :root {
-  /* Primary accent — indigo-violet */
-  --color-primary: #6366f1;
-  --color-primary-light: #818cf8;
-  --color-primary-bg: #eef2ff;
+  /* Primary accent — blue (SaaS-style) */
+  --color-primary: #2563eb;
+  --color-primary-hover: #1d4ed8;
+  --color-primary-light: #3b82f6;
+  --color-primary-bg: #eff6ff;
 
   /* Surfaces */
-  --color-background: #f8f9fc;
+  --color-background: #f1f5f9;
   --color-surface: #ffffff;
+  --color-surface-elevated: #ffffff;
 
   /* Borders & shadows */
-  --color-border: #e5e7eb;
-  --color-shadow: rgba(99, 102, 241, 0.08);
+  --color-border: #e2e8f0;
+  --color-border-focus: #93c5fd;
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.07), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -4px rgba(0, 0, 0, 0.05);
+  --shadow-primary: 0 4px 14px rgba(37, 99, 235, 0.15);
 
   /* Text */
-  --color-text: #1e1e2e;
-  --color-text-secondary: #6b7280;
-  --color-text-tertiary: #9ca3af;
+  --color-text: #0f172a;
+  --color-text-secondary: #475569;
+  --color-text-tertiary: #94a3b8;
 
   /* Semantic */
   --color-error: #dc2626;
   --color-error-bg: #fef2f2;
 
-  /* Font */
-  --font-sans: var(--font-geist-sans), system-ui, -apple-system, sans-serif;
+  /* Font — Roboto */
+  --font-sans: var(--font-roboto), "Roboto", system-ui, -apple-system, sans-serif;
 }
 
 /* ── Reset ────────────────────────────────────────────── */
@@ -50,6 +54,7 @@ body {
   padding: 0;
   font-family: var(--font-sans);
   font-size: 16px;
+  font-weight: 400;
   line-height: 1.6;
   color: var(--color-text);
   background: var(--color-background);
@@ -71,4 +76,9 @@ a:hover {
 :focus-visible {
   outline: 2px solid var(--color-primary);
   outline-offset: 2px;
+}
+
+/* App shell */
+main {
+  min-height: 100dvh;
 }

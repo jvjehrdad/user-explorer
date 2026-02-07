@@ -6,7 +6,11 @@ import { useDebounce } from "@/hooks/useDebounce";
 import { SearchInput } from "@/components/SearchInput/SearchInput";
 import { UserList } from "@/components/UserList/UserList";
 import { StatusMessage } from "@/components/StatusMessage/StatusMessage";
+import { SearchInputSkeleton } from "@/components/SearchInputSkeleton/SearchInputSkeleton";
+import { UserCardSkeleton } from "@/components/UserCardSkeleton/UserCardSkeleton";
 import styles from "./UserExplorer.module.css";
+
+const SKELETON_CARD_COUNT = 9;
 
 /**
  * Main orchestrator component — the only "use client" boundary in the app.
@@ -52,7 +56,18 @@ export function UserExplorer() {
   if (isLoading) {
     return (
       <div className={styles.container}>
-        <StatusMessage type="loading" />
+        <header className={styles.header}>
+          <h1 className={styles.title}>User Explorer</h1>
+          <p className={styles.subtitle}>
+            Browse and search through the user directory
+          </p>
+        </header>
+        <SearchInputSkeleton />
+        <div className={styles.skeletonGrid} role="status" aria-label="Loading users">
+          {Array.from({ length: SKELETON_CARD_COUNT }, (_, i) => (
+            <UserCardSkeleton key={i} />
+          ))}
+        </div>
       </div>
     );
   }
